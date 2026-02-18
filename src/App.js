@@ -52,15 +52,37 @@ function App() {
 
   const [currentImg, setCurrentImg] = useState(1);
 
+  const moveImg = (direction) => {
+    console.log(direction);
+
+    if (direction === "left") {
+      if (currentImg === 1) {
+        setCurrentImg(1);
+      } else {
+        setCurrentImg(currentImg - 1);
+      }
+    } else if (direction === "right") {
+      setCurrentImg(currentImg + 1);
+    }
+  };
+
+  console.log(currentImg);
+
   return (
     <div className="App">
-      <div className="arrow leftArrow">{`<--`}</div>
+      <div
+        className="arrow leftArrow"
+        onClick={() => moveImg("left")}
+      >{`<--`}</div>
       <div className="mainImageContainer">
         {images.map((image) => {
           return <img src={image.img} key={image.key} />;
         })}
       </div>
-      <div className="arrow rightArrow">{`-->`}</div>
+      <div
+        className="arrow rightArrow"
+        onClick={() => moveImg("right")}
+      >{`-->`}</div>
     </div>
   );
 }
