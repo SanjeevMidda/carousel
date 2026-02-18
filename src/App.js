@@ -7,6 +7,7 @@ import four from "./imgs/four.jpg";
 import five from "./imgs/five.jpg";
 import six from "./imgs/six.jpg";
 import seven from "./imgs/seven.jpg";
+import { useState } from "react";
 
 function App() {
   // arrows
@@ -14,19 +15,49 @@ function App() {
   // container to hold our images
   // smaller and bigger when in focus
 
+  const [images, setImage] = useState([
+    {
+      img: one,
+      no: 1,
+    },
+    {
+      img: two,
+      no: 2,
+    },
+    {
+      img: three,
+      no: 3,
+    },
+    {
+      img: three,
+      no: 3,
+    },
+    {
+      img: four,
+      no: 4,
+    },
+    {
+      img: five,
+      no: 5,
+    },
+    {
+      img: six,
+      no: 6,
+    },
+    {
+      img: seven,
+      no: 7,
+    },
+  ]);
   return (
     <div className="App">
-      <div className="leftArrow">{`<--`}</div>
+      <div className="arrow leftArrow">{`<--`}</div>
       <div className="mainImageContainer">
-        <img src={one} alt="" />
-        <img src={two} alt="" />
-        <img src={three} alt="" />
-        <img src={four} alt="" />
-        <img src={five} alt="" />
-        <img src={six} alt="" />
-        <img src={seven} alt="" />
+        {images.map((image) => {
+          return <img src={image.img} key={image.key} />;
+        })}
       </div>
-      <div className="rightArrow">{`-->`}</div>
+      <div className="arrow rightArrow">{`-->`}</div>
     </div>
   );
 }
