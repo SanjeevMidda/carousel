@@ -49,6 +49,9 @@ function App() {
       no: 7,
     },
   ]);
+
+  const [currentImg, setCurrentImg] = useState(1);
+
   return (
     <div className="App">
       <div className="arrow leftArrow">{`<--`}</div>
